@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_DATABASE: dev
+    ports:
+      - 3306:3306
+
+  dev:
+    build: .
+    tty: true
+    command: bash
